@@ -1,7 +1,7 @@
 import os
 import pytest
 from fastapi.testclient import TestClient
-from main import app
+from app.main import app  # <--- This tests the new modular app/ package
 
 ALERTS_DB_PATH = "alerts_db.json"
 
@@ -22,8 +22,10 @@ def cleanup_db():
 # --- SECURITY GATE TESTS ---
 def test_alert_missing_api_key():
     response = client.post("/robot/alert", json={
-        "robot_id": "bot_01",
-        "location_id": "room_101",
+        "robotSn": "bot_01",
+        "location": {
+            "mapId": "Floor_1_North"
+        },
         "alert_type": "OBSTACLE_STUCK"
     })
     assert response.status_code == 401
@@ -33,8 +35,10 @@ def test_alert_invalid_api_key():
         "/robot/alert",
         headers={"X-Bridge-API-Key": "wrong-key"},
         json={
-            "robot_id": "bot_01",
-            "location_id": "room_101",
+            "robotSn": "bot_01",
+        "location": {
+            "mapId": "Floor_1_North"
+        },
             "alert_type": "OBSTACLE_STUCK"
         }
     )
@@ -42,33 +46,43 @@ def test_alert_invalid_api_key():
 
 # --- ROBOT INGESTION & DE-DUPLICATION TESTS ---
 def test_successful_alert_ingestion():
+    payload = {
+        "robotSn": "bot_01",
+        "eventId": "evt_1001",
+        "state": "OBSTACLE_STUCK",
+        "location": {
+            "mapId": "Floor_1_North"
+        },
+        "severity": "HIGH",
+        "timestamp": "2026-08-03T21:48:00Z"
+    }
     response = client.post(
         "/robot/alert",
         headers={"X-Bridge-API-Key": API_KEY},
-        json={
-            "robot_id": "bot_01",
-            "location_id": "room_101",
-            "alert_type": "OBSTACLE_STUCK",
-            "severity": "HIGH"
-        }
+        json=payload
     )
-    assert response.status_code == 200
+    assert response.status_code == 200, response.json()
 
 def test_duplicate_alert_filtering():
     payload = {
-        "robot_id": "bot_01",
-        "location_id": "room_101",
-        "alert_type": "OBSTACLE_STUCK"
+        "robotSn": "bot_01",
+        "eventId": "evt_1001",
+        "state": "OBSTACLE_STUCK",
+        "location": {
+            "mapId": "Floor_1_North"
+        },
+        "severity": "HIGH",
+        "timestamp": "2026-08-03T21:48:00Z"
     }
     headers = {"X-Bridge-API-Key": API_KEY}
 
     # First call: Ingested
     res1 = client.post("/robot/alert", headers=headers, json=payload)
-    assert res1.status_code == 200
+    assert res1.status_code == 200, res1.json()
 
     # Immediate duplicate call: Skipped or filtered
     res2 = client.post("/robot/alert", headers=headers, json=payload)
-    assert res2.status_code == 200
+    assert res2.status_code == 200, res2.json()
 
 # --- PCC OAUTH & STATE INSPECTION TESTS ---
 def test_pcc_state_lifecycle():
