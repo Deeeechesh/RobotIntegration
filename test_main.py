@@ -99,3 +99,31 @@ def test_pcc_state_lifecycle():
     assert res3.json()["status"] == "ACTIVE_IN_RAM"
     # Adjusted assertion to match live bearer token structure
     assert "pcc_live_bearer_token" in res3.json()["current_state"]["access_token"]
+def test_cooldown_alert_filtering():
+    payload_initial = {
+        "robotSn": "bot_99",
+        "eventId": "evt_2001",
+        "state": "BATTERY_CRITICAL",
+        "location": {"mapId": "Floor_2"},
+        "severity": "HIGH",
+        "timestamp": "2026-08-20T20:00:00Z"
+    }
+    
+    payload_rapid_fire = {
+        "robotSn": "bot_99",
+        "eventId": "evt_2002",  # Different event ID!
+        "state": "BATTERY_CRITICAL",  # Same state, within 60 seconds
+        "location": {"mapId": "Floor_2"},
+        "severity": "HIGH",
+        "timestamp": "2026-08-20T20:00:15Z"
+    }
+
+    headers = {"X-Bridge-API-Key": API_KEY}
+
+    # First trigger: Ingested
+    res1 = client.post("/robot/alert", headers=headers, json=payload_initial)
+    assert res1.json()["status"] == "INGESTED"
+
+    # Rapid-fire trigger: Ignored via cooldown rule
+    res2 = client.post("/robot/alert", headers=headers, json=payload_rapid_fire)
+    assert res2.json()["status"] == "IGNORED"

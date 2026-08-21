@@ -3,19 +3,15 @@ import os
 
 DB_FILE = "alerts_db.json"
 
-def load_db():
+def load_alerts() -> list:
     if not os.path.exists(DB_FILE):
         return []
-    with open(DB_FILE, "r") as f:
-        try:
+    try:
+        with open(DB_FILE, "r") as f:
             return json.load(f)
-        except json.JSONDecodeError:
-            return []
+    except (json.JSONDecodeError, FileNotFoundError):
+        return []
 
-def save_db(data):
+def save_alerts(alerts: list) -> None:
     with open(DB_FILE, "w") as f:
-        json.dump(data, f, indent=2)
-
-def init_db():
-    if not os.path.exists(DB_FILE):
-        save_db([])
+        json.dump(alerts, f, indent=2)
