@@ -1,0 +1,19 @@
+2026-08-20 20:52:28.510 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-20 20:52:28.515 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-20 20:52:28.520 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'bear_robotics_prod_secret_abc123'
+2026-08-20 20:52:28.583 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'bear_robotics_prod_secret_abc123'
+2026-08-20 20:52:28.598 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'bear_robotics_prod_secret_abc123'
+2026-08-20 20:55:03.677 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-20 20:55:03.682 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-20 20:55:03.687 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-20 20:55:03.688 | SUCCESS  | app.services.deduplication:process_and_store_alert:50 - Alert INGESTED | Robot: bot_01 | Event: evt_1001 | State: OBSTACLE_STUCK
+2026-08-20 20:55:03.694 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-20 20:55:03.695 | SUCCESS  | app.services.deduplication:process_and_store_alert:50 - Alert INGESTED | Robot: bot_01 | Event: evt_1001 | State: OBSTACLE_STUCK
+2026-08-20 20:55:03.697 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-20 20:55:03.698 | DEBUG    | app.services.deduplication:is_duplicate_alert:19 - Duplicate check hit: Exact Event ID match 'evt_1001'
+2026-08-20 20:55:03.698 | INFO     | app.services.deduplication:process_and_store_alert:41 - Alert IGNORED [Duplicate/Cooldown] | Robot: bot_01 | Event: evt_1001 | State: OBSTACLE_STUCK
+2026-08-20 20:55:03.711 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-20 20:55:03.711 | SUCCESS  | app.services.deduplication:process_and_store_alert:50 - Alert INGESTED | Robot: bot_99 | Event: evt_2001 | State: BATTERY_CRITICAL
+2026-08-20 20:55:03.714 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-20 20:55:03.715 | DEBUG    | app.services.deduplication:is_duplicate_alert:27 - Duplicate check hit: Cooldown active for robot 'bot_99' in state 'BATTERY_CRITICAL' (15.0s < 60s)
+2026-08-20 20:55:03.715 | INFO     | app.services.deduplication:process_and_store_alert:41 - Alert IGNORED [Duplicate/Cooldown] | Robot: bot_99 | Event: evt_2002 | State: BATTERY_CRITICAL
