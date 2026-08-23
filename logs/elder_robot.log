@@ -17,3 +17,191 @@
 2026-08-20 20:55:03.714 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
 2026-08-20 20:55:03.715 | DEBUG    | app.services.deduplication:is_duplicate_alert:27 - Duplicate check hit: Cooldown active for robot 'bot_99' in state 'BATTERY_CRITICAL' (15.0s < 60s)
 2026-08-20 20:55:03.715 | INFO     | app.services.deduplication:process_and_store_alert:41 - Alert IGNORED [Duplicate/Cooldown] | Robot: bot_99 | Event: evt_2002 | State: BATTERY_CRITICAL
+2026-08-22 18:10:00.970 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-22 18:10:00.976 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-22 18:10:00.980 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 18:10:01.700 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 18:10:02.198 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 18:25:39.004 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-22 18:25:39.010 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-22 18:25:39.016 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 18:25:39.600 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 18:25:40.085 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 18:30:48.400 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-22 18:30:48.407 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-22 18:30:48.413 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 18:30:48.984 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 18:30:49.483 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 18:32:11.957 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 18:34:57.847 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 18:46:25.259 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:00:13.162 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-22 19:00:13.168 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-22 19:00:13.173 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:00:13.755 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:00:14.246 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:17:41.755 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-22 19:17:41.767 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-22 19:17:41.775 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:17:42.345 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:17:42.839 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:21:01.275 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-22 19:21:01.282 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-22 19:21:01.287 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:21:01.860 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:21:02.342 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:22:13.320 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-22 19:22:13.327 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-22 19:22:13.334 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:22:13.905 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:22:14.385 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:23:23.658 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-22 19:23:23.664 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-22 19:23:23.670 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:23:24.236 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:23:24.730 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:25:02.443 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-22 19:25:02.451 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-22 19:25:02.456 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:25:03.031 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:25:03.525 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:27:52.767 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-22 19:27:52.773 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-22 19:27:52.778 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:27:53.364 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:27:53.852 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:36:30.394 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-22 19:36:30.402 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-22 19:36:30.408 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:36:31.097 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:36:31.728 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:44:46.167 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-22 19:44:46.176 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-22 19:44:46.181 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:44:46.768 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:44:47.246 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:45:57.501 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-22 19:45:57.512 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-22 19:45:57.519 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:45:58.103 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:45:58.631 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:47:49.507 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-22 19:47:49.514 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-22 19:47:49.519 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:47:50.094 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:47:50.596 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:49:04.537 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:51:36.932 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:53:44.630 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:55:21.457 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 19:59:28.115 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:00:31.963 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:01:18.794 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-22 20:01:18.806 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-22 20:01:18.814 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:01:19.396 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:01:19.889 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:10:46.292 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-22 20:10:46.298 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-22 20:10:46.304 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:10:46.874 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:10:47.355 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:11:55.191 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-22 20:11:55.197 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-22 20:11:55.204 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:11:55.777 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:11:56.298 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:14:11.802 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-22 20:14:11.807 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-22 20:14:11.812 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:14:12.380 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:14:12.862 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:17:38.845 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-22 20:17:38.852 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-22 20:17:38.858 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:17:39.235 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:17:39.546 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:18:58.176 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-22 20:18:58.183 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-22 20:18:58.189 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:18:58.568 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:18:58.874 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:19:42.323 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-22 20:19:42.336 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-22 20:19:42.344 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:19:42.729 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:19:43.034 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:20:26.765 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-22 20:20:26.772 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-22 20:20:26.778 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:20:27.180 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:20:27.501 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:21:32.848 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-22 20:21:32.860 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-22 20:21:32.868 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:21:33.256 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:21:33.582 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:23:22.271 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-22 20:23:22.278 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-22 20:23:22.285 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:23:22.663 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:23:22.969 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:24:20.850 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-22 20:24:20.857 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-22 20:24:20.863 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:24:21.289 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:24:21.622 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:26:00.666 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-22 20:26:00.672 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-22 20:26:00.677 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:26:01.075 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:26:01.407 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:26:37.032 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-22 20:26:37.039 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-22 20:26:37.044 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:26:37.440 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:26:37.747 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:26:54.525 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-22 20:26:54.532 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-22 20:26:54.538 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:26:54.917 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-22 20:26:55.223 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 00:04:28.853 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-23 00:04:28.859 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-23 00:04:28.863 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 00:04:29.248 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 00:04:29.561 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 00:05:14.795 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 00:10:30.746 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-23 00:10:30.753 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-23 00:10:30.758 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 00:10:31.138 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 00:10:31.447 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 00:11:05.015 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-23 00:11:05.021 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-23 00:11:05.026 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 00:11:05.427 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 00:11:05.737 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 00:13:10.529 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 00:15:54.938 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 00:23:28.558 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 00:26:16.739 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 00:26:47.907 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 00:28:37.488 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 00:29:56.776 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 00:31:11.953 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 00:32:47.635 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 00:35:34.672 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 00:36:22.895 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 00:36:52.314 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 00:40:24.397 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 00:41:32.063 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 00:42:51.327 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 00:44:15.733 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-23 00:44:15.740 | WARNING  | app.routers.auth:verify_api_key:24 - Authentication failed: Invalid API key provided: 'wrong-key'
+2026-08-23 00:44:15.745 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 00:44:16.317 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 00:44:16.797 | DEBUG    | app.routers.auth:verify_api_key:27 - API key authenticated successfully.
+2026-08-23 16:18:44.619 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-23 16:21:19.405 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.
+2026-08-23 16:27:23.506 | WARNING  | app.routers.auth:verify_api_key:20 - Authentication failed: Missing X-Bridge-API-Key header.

@@ -1,17 +1,20 @@
-import json
+﻿# app/database.py
 import os
+from sqlmodel import SQLModel, create_engine, Session
 
-DB_FILE = "alerts_db.json"
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///database.db")
 
-def load_alerts() -> list:
-    if not os.path.exists(DB_FILE):
-        return []
-    try:
-        with open(DB_FILE, "r") as f:
-            return json.load(f)
-    except (json.JSONDecodeError, FileNotFoundError):
-        return []
+# Add connect_args for SQLite to prevent threading and locking issues on Windows
+connect_args = {"check_same_thread": False} if "sqlite" in DATABASE_URL else {}
 
-def save_alerts(alerts: list) -> None:
-    with open(DB_FILE, "w") as f:
-        json.dump(alerts, f, indent=2)
+engine = create_engine(
+    DATABASE_URL,
+    connect_args=connect_args,
+)
+
+def create_db_and_tables():
+    SQLModel.metadata.create_all(engine)
+
+def get_session():
+    with Session(engine) as session:
+        yield session

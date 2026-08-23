@@ -1,0 +1,16 @@
+﻿services:
+  elder-robot:
+    build: .
+    container_name: elder_robot_bridge
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:///./database.db
+      - API_KEY=bear_robotics_prod_secret_abc123
+      - PCC_BASE_URL=https://pcc.bearrobotics.internal/api/v1
+    volumes:
+      - sqlite_data:/app
+    restart: unless-stopped
+
+volumes:
+  sqlite_data:
