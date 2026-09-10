@@ -1,0 +1,36 @@
+# ElderRobot Setup & Quick Start
+
+## Prerequisites
+* Docker & Docker Compose
+* Python 3.10+ (for local development)
+
+---
+
+## Environment Configuration
+Create a `.env` file in the root directory with the following variables:
+
+```env
+API_KEY=your-secure-bridge-api-key-here
+DATABASE_URL=sqlite:///./data/elder_robot.db
+PCC_API_URL=https://pcc.internal.local/api/v1
+PCC_OAUTH_TOKEN=your-pcc-oauth-token
+```
+
+---
+
+## Running with Docker Compose
+1. Build and start the containerized service:
+   ```bash
+   docker-compose up --build -d
+   ```
+2. Verify container health and log output:
+   ```bash
+   docker-compose logs -f bridge
+   ```
+
+---
+
+## Directory Structure
+* `src/` - Core FastAPI application source code, models, and worker logic.
+* `docs/` - Operational runbooks (`dlq-runbook.md`), architecture notes, and roadmaps.
+* `data/` - Persistent volume directory for SQLite WAL database storage.
