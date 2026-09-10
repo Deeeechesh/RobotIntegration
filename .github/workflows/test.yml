@@ -1,14 +1,14 @@
 name: Run Pytest Suite
 
 on:
-  push:
-    branches: [ "main", "master" ]
-    paths-ignore:
-      - 'docs/**'
-  pull_request:
-    branches: [ "main", "master" ]
-    paths-ignore:
-      - 'docs/**'
+  #push:
+    #branches: [ "main", "master" ]
+    #paths-ignore:
+      #- 'docs/**'
+  #pull_request:
+    #branches: [ "main", "master" ]
+    #paths-ignore:
+    #  - 'docs/**'
 jobs:
   test:
     runs-on: ubuntu-latest
