@@ -1,0 +1,13 @@
+# ElderRobot Bridge Architecture
+
+## Overview
+The **ElderRobot Bridge** is an industrial-grade, edge-hosted adapter layer designed to ingest heterogeneous robot telemetry and safety alerts via an HTTP-first interface and normalize them for a central Command Center. The system prioritizes local resilience, defensive failure handling, and zero data loss through robust local persistence.
+
+---
+
+## 1. System Components & Data Flow
+1. **Ingress Gate (FastAPI):** Receives HTTP POST payloads from autonomous robots. Acts as the primary security checkpoint for API key / Bearer token authentication.
+2. **Validation & Normalization Layer:** Utilizes Pydantic schemas to validate incoming payloads and inject server-side UTC timestamps (`received_at`) to mitigate robot-side clock drift.
+3. **Persistent Queue (SQLite + WAL Mode):** Stores validated payloads locally on disk using SQLite in Write-Ahead Logging (WAL) mode with explicit busy timeouts to handle concurrent read/write operations safely.
+4. **Downstream Sync Worker:** Background worker loop that pulls from the persistent queue and synchronizes records upstream to the Platform Command Center (PCC).
+5. **Dead-Letter Queue (DLQ):** Captures malformed payloads or permanently failing records for operator triage.
