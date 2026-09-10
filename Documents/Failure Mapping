@@ -1,0 +1,11 @@
+## 2. Failure Mode Mapping (The Miro Board Blueprint)
+The bridge architecture incorporates defensive handling for six primary edge failure modes:
+
+| Failure Mode | Root Cause / Impact | Architectural Mitigation |
+| :--- | :--- | :--- |
+| **1. API Key Expiration / Auth Failures** | Unauthorized payloads (`401`) rejected at the door; unhandled drops lead to silent hardware lockouts. | Placed security gate at the very entrance; implements explicit security audit logging capturing `robot_id` and source IP for local visibility. |
+| **2. SQLite Concurrency / Lock Contention** | Simultaneous write requests trigger `sqlite3.OperationalError: database is locked`. | SQLite WAL mode enabled with an explicit `busy_timeout` (e.g., 5000ms) to allow competing threads to wait gracefully. |
+| **3. Network & Packet Loss** | Dropped connections between robots and the edge bridge. | TCP/HTTP retransmissions, client-side retries, and heartbeat watchdogs. |
+| **4. Bridge Offline / Backpressure** | Network drops or PCC outages cause downstream sync blockages. | Persistent local queue via SQLite ensuring incoming alerts are safely saved to disk rather than dropped in-memory. |
+| **5. Malformed Payloads & Schema Drift** | Bad JSON structures or invalid types from robot firmware updates. | Strict Pydantic validation at the ingestion door with immediate routing to the Dead-Letter Queue (DLQ). |
+| **6. Clock Drift** | Desynchronized system clocks across disparate robot hardware. | Server-side `received_at` timestamp injection upon ingestion to maintain reliable event sequencing. |
