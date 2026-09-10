@@ -1,0 +1,48 @@
+# ElderRobot Dead-Letter Queue (DLQ) Operational Runbook
+
+## Overview
+This runbook defines the operational lifecycle, visibility, triage workflows, and retention policies for the Dead-Letter Queue (DLQ) within the ElderRobot bridge service. The DLQ ensures that malformed payloads, validation failures, or permanently failing records do not block live operational pipelines or disappear silently.
+
+---
+
+## 1. Ingress & Classification
+Records are routed to the DLQ under two primary conditions:
+* **Validation Failure:** An incoming robot payload fails Pydantic schema validation at the ingestion door.
+* **Max Retry Exhaustion:** A queued message in the persistent SQLite queue hits its maximum retry limit due to persistent downstream integration errors with the Platform Command Center (PCC).
+
+### State Transition & Metadata Capture
+* **State Change:** Record status transitions from `pending` or `processing` to `dead_letter`.
+* **Captured Metadata:**
+  * Exact error traceback and failure reason.
+  * Raw incoming JSON payload.
+  * `robot_id` (extracted from headers or payload).
+  * Original `received_at` UTC timestamp.
+
+---
+
+## 2. Local Operator Visibility
+Operators require lightweight visibility into edge errors without directly querying raw SQLite files on every incident.
+
+* **Admin Interface / CLI Utilities:** Access via a local management command or a secured internal endpoint (`GET /admin/dlq`).
+* **Alerting Thresholds:** If the DLQ record count increases by more than a defined threshold within a 1-hour window, the local system flags a warning indicator on the edge dashboard. This acts as an early warning system for widespread robot-side firmware bugs or schema drifts.
+
+---
+
+## 3. Triage & Remediation Workflow
+When an alert sits in the DLQ, operators use one of three resolution paths:
+
+1. **Discard / Drop:** 
+   * *Use Case:* Test payloads, deprecated sensor data, or corrupt noise that cannot be salvaged.
+   * *Action:* Permanently purge the record with a logged audit trail entry.
+2. **Edit & Re-inject:** 
+   * *Use Case:* Minor formatting errors (e.g., a missing optional field or a minor type mismatch) that can be manually corrected.
+   * *Action:* Correct the payload via an admin utility and push it back into the active processing queue.
+3. **Firmware / Configuration Flagging:** 
+   * *Use Case:* Multiple alerts from the same `robot_id` sharing identical validation errors (e.g., an invalid enum value).
+   * *Action:* Flag the hardware unit for a configuration review or firmware update rather than manually patching individual packets.
+
+---
+
+## 4. Retention & Audit Policy
+* **Rolling Storage Window:** Dead-lettered payloads are retained on edge storage for a maximum of **30 days** to prevent disk bloat.
+* **Automated Pruning:** Records exceeding the retention window are automatically archived or deleted after logging summary metrics for post-incident reviews.
