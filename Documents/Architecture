@@ -11,3 +11,5 @@ The **ElderRobot Bridge** is an industrial-grade, edge-hosted adapter layer desi
 3. **Persistent Queue (SQLite + WAL Mode):** Stores validated payloads locally on disk using SQLite in Write-Ahead Logging (WAL) mode with explicit busy timeouts to handle concurrent read/write operations safely.
 4. **Downstream Sync Worker:** Background worker loop that pulls from the persistent queue and synchronizes records upstream to the Platform Command Center (PCC).
 5. **Dead-Letter Queue (DLQ):** Captures malformed payloads or permanently failing records for operator triage.
+
+Test change
