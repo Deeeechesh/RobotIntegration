@@ -1,0 +1,29 @@
+# ElderRobot Development Roadmap & Phases
+
+This document outlines the structured lifecycle for designing, building, and hardening the ElderRobot bridge service.
+
+---
+
+## Phase 1: Architecture & Failure Mapping (Complete)
+* **System Boundaries:** Defined HTTP-first ingestion contracts and centralized sync requirements.
+* **Failure Mode Analysis:** Mapped 6 core edge failure vulnerabilities on the architecture board (Auth expiration, SQLite concurrency, network dropouts, queue backpressure, malformed payloads, and clock drift).
+* **Persistence Strategy:** Selected SQLite WAL mode and local file volume mounting.
+
+## Phase 2: Data Contracts & Storage Layer (Complete)
+* **Pydantic Schemas:** Defined strict incoming payload structures, required identifiers (`event_id`, `robot_id`), and validation rules.
+* **SQLModel Definitions:** Established database tables for persistent queuing, retry tracking, and DLQ state transitions.
+* **Containerization:** Configured Docker and Docker Compose environments with persistent volume mappings.
+
+## Phase 3: Core API Ingestion & Authentication (In Progress / Next)
+* **FastAPI Endpoints:** Build the `/ingest` router.
+* **Security Middleware:** Implement API key validation and audit logging.
+* **Idempotency Checks:** Deduplicate incoming alerts using client-generated `event_id` keys.
+
+## Phase 4: Queue Management & Downstream Sync
+* **Background Worker Loops:** Implement worker processes to drain the local SQLite queue and sync to the cloud Platform Command Center (PCC).
+* **OAuth Token Management:** Handle downstream token rotation and exponential backoff retry strategies.
+* **DLQ Utilities:** Expose admin endpoints (`GET /admin/dlq`) and triage hooks.
+
+## Phase 5: Hardening & Testing
+* **Test Suite Implementation:** Write integration and unit tests for concurrency, lock timeouts, and validation failures.
+* **Stress Testing:** Simulate network drops, high-frequency alert bursts, and database contention under load.
