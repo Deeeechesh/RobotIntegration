@@ -1,0 +1,41 @@
+# ElderRobot: DLQ Operator Dashboard Specification
+
+## 1. Overview & Objectives
+The Dead-Letter Queue (DLQ) Operator Dashboard provides operators with a centralized interface to inspect, triage, and resolve failed telemetry payloads that cannot be synced to the Platform Command Center (PCC).
+
+## 2. Core UI Components
+
+### A. Summary Metrics Header
+* **Total Quarantined Records:** Current count of items in the local SQLite WAL DLQ.
+* **Error Ingestion Rate:** Rolling 24-hour frequency of failures.
+* **Storage Footprint:** Disk space consumed by the local dead-letter store.
+
+### B. Failed Telemetry Table
+The main operational grid displaying quarantined payloads with the following columns:
+| Timestamp (UTC) | Robot ID | Error Category | Retry Count | Quick Actions |
+| :--- | :--- | :--- | :--- | :--- |
+| `2026-09-10 14:22:01` | `forklift-04` | Schema Validation Failed | 3 | [Inspect] [Reprocess] [Discard] |
+
+### C. Payload Inspection Modal
+* Side-by-side or stacked view showing:
+  * **Raw JSON Payload:** Syntax-highlighted code block of the incoming telemetry.
+  * **Error Traceback:** Exact validation error or exception string thrown by the bridge.
+
+## 3. Operator Workflows & API Mapping
+
+* **Reprocess Action:**
+  * *Trigger:* Operator clicks "Reprocess".
+  * *Endpoint:* `POST /api/v1/dlq/reprocess/{id}`
+  * *Behavior:* Re-injects the payload into the active sync buffer and increments the retry audit counter.
+
+* **Discard Action:**
+  * *Trigger:* Operator clicks "Discard" (requires confirmation modal).
+  * *Endpoint:* `DELETE /api/v1/dlq/discard/{id}`
+  * *Behavior:* Purges the record from edge storage and logs an entry to the local audit trail.
+
+* **Batch Operations:**
+  * Multi-select capability to bulk-reprocess or bulk-discard records matching a filtered robot ID or error type.
+
+## 4. Security & Access Control
+* **Authentication:** Protected via API keys or session tokens aligned with the edge host access controls.
+* **Audit Logging:** Every manual triage action (Reprocess/Discard) logs the operator identifier, timestamp, and record UUID for compliance and traceability.
