@@ -1,3 +1,5 @@
+# ElderRobot Bridge Failure Mapping
+
 ## 2. Failure Mode Mapping (The Miro Board Blueprint)
 The bridge architecture incorporates defensive handling for six primary edge failure modes:
 
