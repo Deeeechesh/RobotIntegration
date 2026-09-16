@@ -1,2 +1,61 @@
-Google Doc Link
-https://docs.google.com/document/d/1ygslQYRnIAtxs3VZTEFnffXUXDB71gEe9ETx_nvPJvM/edit?tab=t.0
+ElderRobot: DLQ Management API Specification
+This document outlines the API endpoints, request/response payloads, and error handling mechanisms required to power the Dead-Letter Queue (DLQ) operator dashboard and manage quarantined telemetry records.
+1. List Quarantined Payloads
+Retrieves a paginated list of failed telemetry records currently sitting in the local SQLite WAL DLQ.
+Endpoint: GET /api/v1/dlq/records
+Query Parameters:
+page (int, default: 1)
+limit (int, default: 50)
+robot_id (string, optional) - Filter by a specific robot.
+error_type (string, optional) - Filter by error category (e.g., ValidationError, AuthError).
+Response Body (200 OK):
+{
+  "total": 3,
+  "page": 1,
+  "limit": 50,
+  "records": [
+    {
+      "id": "uuid-string-1234",
+      "timestamp": "2026-09-10T14:22:01Z",
+      "robot_id": "forklift-04",
+      "error_type": "ValidationError",
+      "error_message": "Field 'battery_level' missing from payload",
+      "retry_count": 3,
+      "raw_payload": {"robot_id": "forklift-04", "status": "active"}
+    }
+  ]
+}
+2. Reprocess Payload
+Forces the bridge to take a quarantined record, re-validate it, and push it back into the active cloud sync queue.
+Endpoint: POST /api/v1/dlq/reprocess/{id}
+Response Body (200 OK):
+{
+  "status": "success",
+  "message": "Record uuid-string-1234 successfully re-injected into sync queue",
+  "record_id": "uuid-string-1234"
+}
+Error Response (404 Not Found): Record ID does not exist in the DLQ.
+3. Discard Payload
+Permanently purges an unrecoverable or junk record from local storage and logs an audit trail entry.
+Endpoint: DELETE /api/v1/dlq/discard/{id}
+Response Body (200 OK):
+{
+  "status": "purged",
+  "message": "Record uuid-string-1234 permanently deleted from DLQ",
+  "audit_logged": true
+}
+4. Batch Operations
+Allows operators to perform bulk reprocess or bulk discard actions on multiple selected records simultaneously.
+Endpoint: POST /api/v1/dlq/batch
+Request Body:
+{
+  "action": "reprocess", 
+  "record_ids": ["uuid-1", "uuid-2", "uuid-3"]
+}
+Response Body (200 OK):
+{
+  "action": "reprocess",
+  "processed_count": 3,
+  "failed_count": 0,
+  "details": []
+}
